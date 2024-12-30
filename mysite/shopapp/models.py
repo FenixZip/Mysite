@@ -1,3 +1,4 @@
+from django.contrib.auth.models import User
 from django.db import models
 
 class Product(models.Model):
@@ -15,3 +16,13 @@ class Product(models.Model):
     def __str__(self):
         return f'Название продукта {self.name} => ${self.price}'
 
+
+class Order(models.Model):
+    customer = models.ForeignKey(User, on_delete=models.PROTECT)
+    products = models.ManyToManyField(Product, related_name='orders')
+    description = models.TextField()
+    status = models.CharField(max_length=50, default='Pending')
+    created_at  = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f'Order {self.id} for {self.customer.username}'
