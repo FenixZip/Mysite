@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Site{% endblock %}</title>
+    <style>
+        /* Стиль для времени и года в правом нижнем углу */
+        .footer-info {
+            position: fixed; /* Закрепляем в правом нижнем углу */
+            bottom: 10px;
+            right: 10px;
+            background-color: rgba(0, 0, 0, 0.7); /* Полупрозрачный фон */
+            color: white; /* Белый текст */
+            padding: 5px 10px; /* Отступы внутри блока */
+            border-radius: 5px; /* Закругленные края */
+            font-size: 14px; /* Размер шрифта */
+            box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5); /* Тень */
+        }
+    </style>
+</head>
+<body>
+<header>
+    <h1>Welcome to My Site</h1>
+</header>
+
+<main>
+    {% block content %}{% endblock %}
+</main>
+
+<!-- Блок времени и года -->
+<footer>
+    <div class="footer-info">
+        © {{ current_year }} | Время: {{ current_time }}
+    </div>
+</footer>
+</body>
+</html>

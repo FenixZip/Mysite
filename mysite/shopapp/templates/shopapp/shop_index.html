@@ -1,0 +1,7 @@
+{% extends "shopapp/base.html" %}
+
+<h1>Shop Index</h1>
+<ul>
+    <li><a href="{% url 'shopapp:products_list' %}">Products</a></li>
+    <li><a href="{% url 'shopapp:orders_list' %}">Orders</a></li>
+</ul>
