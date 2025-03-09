@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block title %}Товары{% endblock %}
+
+{% block content %}
+    <h2>Список товаров</h2>
+    <ul>
+        {% for product in products %}
+            <li>{{ product.name|upper }} - {{ product.price|floatformat:2 }} руб.</li>
+        {% empty %}
+            <p>Товары отсутствуют</p>
+        {% endfor %}
+    </ul>
+
+    {% with total=products|length %}
+        <p>Всего товаров: {{ total }}</p>
+    {% endwith %}
+{% endblock %}
