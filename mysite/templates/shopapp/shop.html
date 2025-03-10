@@ -1,18 +1,12 @@
 {% extends 'shopapp/base.html' %}
 
-{% block title %}Товары{% endblock %}
+{% block title %}Главная{% endblock %}
 
 {% block content %}
-    <h2>Список товаров</h2>
+    <h2>Добро пожаловать в магазин</h2>
     <ul>
-        {% for product in products %}
-            <li>{{ product.name|upper }} - {{ product.price|floatformat:2 }} руб.</li>
-        {% empty %}
-            <p>Товары отсутствуют</p>
+        {% for title, url in pages.items %}
+            <li><a href="{{ url }}">{{ title }}</a></li>
         {% endfor %}
     </ul>
-
-    {% with total=products|length %}
-        <p>Всего товаров: {{ total }}</p>
-    {% endwith %}
 {% endblock %}
