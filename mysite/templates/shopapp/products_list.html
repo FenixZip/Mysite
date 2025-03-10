@@ -1,14 +1,13 @@
-{% extends 'shopapp/base.html' %}
-
-{% block title %}Продукты{% endblock %}
+{% extends "shopapp/base.html" %}
 
 {% block content %}
-    <h2>Список товаров</h2>
+    <h2>Список продуктов</h2>
+    <a href="{% url 'shopapp:product_create' %}">Добавить продукт</a>
     <ul>
         {% for product in products %}
-            <li>{{ product.name }} - {{ product.price }} руб.</li>
-        {% empty %}
-            <p>Нет товаров</p>
+            <li>
+                <a href="{% url 'shopapp:product_detail' product.pk %}">{{ product.name }}</a> - {{ product.price }} руб.
+            </li>
         {% endfor %}
     </ul>
 {% endblock %}

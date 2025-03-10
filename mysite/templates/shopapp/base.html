@@ -2,14 +2,56 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}Мой магазин{% endblock %}</title>
+    <title>{% block title %}Магазин{% endblock %}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        .navbar {
+            background-color: #333;
+            overflow: hidden;
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 10px 0;
+            z-index: 1000;
+        }
+        .navbar a {
+            color: white;
+            padding: 14px 20px;
+            text-decoration: none;
+            float: left;
+        }
+        .navbar a:hover {
+            background-color: #575757;
+        }
+        .content {
+            margin-top: 60px;
+            padding: 20px;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Добро пожаловать в магазин!</h1>
-    </header>
-    <main>
+    <div class="navbar">
+        <!-- Главная -->
+        <a href="{% url 'shopapp:shop_index' %}">🏠 Главная</a>
+
+        <!-- Продукты -->
+        <a href="{% url 'shopapp:product_list' %}">📦 Список продуктов</a>
+        <a href="{% url 'shopapp:product_create' %}">➕ Создать продукт</a>
+
+        <!-- Заказы -->
+        <a href="{% url 'shopapp:order_list' %}">📋 Список заказов</a>
+        <a href="{% url 'shopapp:order_create' %}">🛒 Создать заказ</a>
+
+        <!-- Админка -->
+        <a href="/admin/">⚙️ Админ-панель</a>
+    </div>
+
+    <div class="content">
         {% block content %}{% endblock %}
-    </main>
+    </div>
 </body>
 </html>

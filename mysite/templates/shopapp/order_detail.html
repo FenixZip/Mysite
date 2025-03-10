@@ -1,0 +1,17 @@
+{% extends "shopapp/base.html" %}
+
+{% block content %}
+    <h2>Заказ #{{ order.pk }}</h2>
+    <p>Пользователь: {{ order.user|default:"Аноним" }}</p>
+    <p>Статус: {{ order.get_status_display }}</p>
+    <p>Продукты:</p>
+    <ul>
+        {% for product in order.products.all %}
+            <li>{{ product.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{% url 'shopapp:order_list' %}">Назад</a> |
+    <a href="{% url 'shopapp:order_update' order.pk %}">Редактировать</a> |
+    <a href="{% url 'shopapp:order_delete' order.pk %}">Удалить</a>
+{% endblock %}

@@ -25,6 +25,8 @@ class Order(models.Model):
     status = models.CharField(max_length=20, choices=STATUS_CHOICES, default='NEW', verbose_name="Статус")
     created_at = models.DateTimeField(auto_now_add=True)
     products = models.ManyToManyField(Product, related_name='orders')
+    customer_name = models.CharField(max_length=255, verbose_name="ФИО клиента", blank=True, null=True)
+    customer_phone = models.CharField(max_length=20, verbose_name="Телефон клиента", blank=True, null=True)
 
     def __str__(self):
         return f"Заказ {self.id} ({self.get_status_display()})"

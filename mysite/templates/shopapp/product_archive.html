@@ -1,0 +1,13 @@
+{% extends "shopapp/base.html" %}
+
+{% block content %}
+    <h2>Архивация продукта</h2>
+    <p>Вы уверены, что хотите архивировать "{{ product.name }}"?</p>
+
+    <form method="post">
+        {% csrf_token %}
+        <button type="submit">Архивировать</button>
+    </form>
+
+    <a href="{% url 'shopapp:product_list' %}">Отмена</a>
+{% endblock %}

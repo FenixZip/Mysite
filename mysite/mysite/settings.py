@@ -50,7 +50,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    'shopapp.middleware.throttling_middleware.ThrottlingMiddleware',
+    # 'shopapp.middleware.throttling_middleware.ThrottlingMiddleware',
 ]
 
 ROOT_URLCONF = 'mysite.urls'
