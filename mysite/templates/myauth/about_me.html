@@ -1,0 +1,23 @@
+{% extends "shopapp/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Профиль: {{ profile.user.username }}</h2>
+
+    <!-- Отображение аватарки -->
+    {% if profile.avatar %}
+        <img src="{{ profile.avatar.url }}" alt="Аватар" class="img-thumbnail" width="150">
+    {% else %}
+        <p>Аватар не загружен</p>
+    {% endif %}
+
+    <!-- Форма изменения аватарки (доступна только владельцу или администратору) -->
+    {% if user.is_staff or user == profile.user %}
+        <form method="post" enctype="multipart/form-data" class="mt-3">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit" class="btn btn-primary">Обновить аватар</button>
+        </form>
+    {% endif %}
+</div>
+{% endblock %}

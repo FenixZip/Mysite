@@ -1,0 +1,31 @@
+[
+{
+  "model": "shopapp.order",
+  "pk": 1,
+  "fields": {
+    "user": 1,
+    "status": "NEW",
+    "created_at": "2025-03-09T20:06:55.380Z",
+    "customer_name": null,
+    "customer_phone": null,
+    "products": [
+      1,
+      2
+    ]
+  }
+},
+{
+  "model": "shopapp.order",
+  "pk": 3,
+  "fields": {
+    "user": 1,
+    "status": "NEW",
+    "created_at": "2025-03-10T09:18:59.703Z",
+    "customer_name": "Lev",
+    "customer_phone": "96666666666",
+    "products": [
+      17
+    ]
+  }
+}
+]

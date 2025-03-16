@@ -1,0 +1,13 @@
+{% extends "shopapp/base.html" %}
+
+{% block content %}
+<div class="container mt-5">
+    <h2>Профиль: {{ user.username }}</h2>
+
+    {% if user.profile.avatar %}
+        <img src="{{ user.profile.avatar.url }}" alt="Аватар" width="150">
+    {% else %}
+        <p>Аватар не загружен</p>
+    {% endif %}
+</div>
+{% endblock %}

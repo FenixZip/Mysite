@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<django-objects version="1.0">
+  <object model="shopapp.product" pk="25">
+    <field name="name" type="CharField">Ноутбук</field>
+    <field name="description" type="TextField">Игровой ноутбук</field>
+    <field name="price" type="DecimalField">120000.00</field>
+    <field name="quantity" type="PositiveIntegerField">7</field>
+    <field name="created_at" type="DateTimeField">2025-03-09T20:06:37.062820+00:00</field>
+    <field name="is_available" type="BooleanField">True</field>
+    <field name="created_by" rel="ManyToOneRel" to="auth.user">1</field>
+  </object>
+</django-objects>
