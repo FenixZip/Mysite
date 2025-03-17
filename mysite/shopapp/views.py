@@ -105,7 +105,9 @@ class OrderDeleteView(DeleteView):
 
 def shop_index(request):
     """Главная страница магазина"""
+
     return render(request, "shopapp/shop_index.html")
+
 
 
 class ProductCreateView(PermissionRequiredMixin, CreateView):

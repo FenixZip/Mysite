@@ -1,3 +1,15 @@
-from django.shortcuts import render
+from django.views.generic import ListView, DetailView
 
-# Create your views here.
+from blogapp.models import Article
+
+
+class ArticleListView(ListView):
+    queryset = (
+        Article.objects
+        .filter(published_at__isnull=False)
+        .order_by("-published_at")
+    )
+
+
+class ArticleDetailView(DetailView):
+    model = Article
